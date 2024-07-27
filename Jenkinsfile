@@ -18,14 +18,14 @@ pipeline{
       }
       stage('Build Docker image'){
         steps{
-          sh "docker build . -t "${IMAGE_NAME}"
+          docker_image = docker.build "${IMAGE_NAME}"
         }
       }
       stage('Push Docker image'){
         steps{
           docker.withRegistry('',REGISTRY_CREDS){
-            sh "docker push ${BUILD_NUMBER}"
-            sh "docker push ('latest')"
+             docker_image.push("$BUILD_NUMBER")
+             docker_image.push('latest')
           }
         }
       }
