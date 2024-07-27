@@ -2,7 +2,7 @@ pipeline{
   agent any
   environment{
     DOCKERHUB_USERNAME = "shashank1518"
-    APP_NAME = "argocd-CI-CDproject"
+    APP_NAME = "argocd-ci-cdproject"
     IMAGE_TAG = "${BUILD_NUMBER}"
     IMAGE_NAME = "${DOCKERHUB_USERNAME}"+ "/" +"${APP_NAME}"
     REGISTRY_CREDS = 'dockerhub'
