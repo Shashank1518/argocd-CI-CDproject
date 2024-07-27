@@ -1,5 +1,5 @@
 pipeline{
-  agentany{
+  agent any{
   environment{
     DOCKERHUB_USERNAME = "shashank1518"
     APP_NAME = "argocd-CI-CDproject"
