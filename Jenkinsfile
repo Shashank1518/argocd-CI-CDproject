@@ -14,7 +14,8 @@ pipeline{
       stage('Git checkout'){
         steps{
           script{
-            git branch: 'main', url: 'https://github.com/Shashank1518/argocd-CI-CDproject.git'  
+            git credentialsId: 'github', 
+            branch: 'main', url: 'https://github.com/Shashank1518/argocd-CI-CDproject.git'  
           }
         }   
       }
