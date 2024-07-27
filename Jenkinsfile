@@ -12,20 +12,26 @@ pipeline{
 
     
       stage('Git checkout'){
-      steps{
-        git branch: 'main', url: 'https://github.com/Shashank1518/argocd-CI-CDproject.git'  
+        steps{
+          script{
+            git branch: 'main', url: 'https://github.com/Shashank1518/argocd-CI-CDproject.git'  
+          }
         }   
       }
       stage('Build Docker image'){
         steps{
-          docker_image = docker.build "${IMAGE_NAME}"
+          script{
+            docker_image = docker.build "${IMAGE_NAME}"
+          }
         }
       }
       stage('Push Docker image'){
         steps{
-          docker.withRegistry('',REGISTRY_CREDS){
-             docker_image.push("$BUILD_NUMBER")
-             docker_image.push('latest')
+          script{
+            docker.withRegistry('',REGISTRY_CREDS){
+               docker_image.push("$BUILD_NUMBER")
+               docker_image.push('latest')
+            }
           }
         }
       }
