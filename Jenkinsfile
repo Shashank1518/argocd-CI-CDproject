@@ -50,7 +50,7 @@ pipeline{
     stage('Trigger CD pipeline'){
       steps{
         script{
-          sh "curl -v -k -user shashanklm:1174916737108e20a5e9a64d56d815d9ed -X POST -H 'cache-control: no-cache -H 'content-type: application/x-www-form-urlencoded' -data 'IMAGE_TAG=${IMAGE_TAG]" 'http://3.89.3.215:8080/job/argo-ci-cdproject-CD/buildWithParameters?token=argocd-cd-pipeline"
+          sh "curl -v -k -user shashanklm:1174916737108e20a5e9a64d56d815d9ed -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' -data 'IMAGE_TAG=${IMAGE_TAG}' 'http://3.89.3.215:8080/job/argo-ci-cdproject-CD/buildWithParameters?token=argocd-cd-pipeline'"
         }
       }
     }
