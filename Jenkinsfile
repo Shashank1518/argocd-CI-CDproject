@@ -63,7 +63,7 @@ pipeline{
           */
           sh "curl http://localhost:8080/job/argocd-cd-project/buildWithParameters \
                 --user USER:argoci-cdproject \
-                --data id:IMAGE_NAME
+                --data id:IMAGE_NAME"
         }
       }
     }
