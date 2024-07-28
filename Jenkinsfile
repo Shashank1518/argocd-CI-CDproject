@@ -41,14 +41,11 @@ pipeline{
 
      stage('Image name'){
         steps{
-          script{
-            sh """
-            cat IMAGE_TAG
-            """
+            echo "Image name: ${IMAGE_TAG}"
           }
         }
       }
-    
+    /*
       stage('delete Docker Image'){
         steps{
           script{
@@ -57,7 +54,7 @@ pipeline{
           }
         }
       }
-  /*
+  
     stage('Trigger CD pipeline'){
       steps{
         script{
