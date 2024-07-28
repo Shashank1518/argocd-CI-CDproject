@@ -43,7 +43,7 @@ pipeline{
         steps{
           script{
             sh """
-            cat IMAGE_NAME
+            cat IMAGE_TAG
             """
           }
         }
