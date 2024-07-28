@@ -39,14 +39,14 @@ pipeline{
         }
       }
 
-     stage('Image name'){
+     stage('Image Name'){
         steps{
           script{
             echo "Image name: ${IMAGE_TAG}"
           }
         }
       }
-    /*
+    
       stage('delete Docker Image'){
         steps{
           script{
@@ -59,11 +59,10 @@ pipeline{
     stage('Trigger CD pipeline'){
       steps{
         script{
-          sh "curl -v -k -user shashanklm:1174916737108e20a5e9a64d56d815d9ed -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' -data 'IMAGE_TAG=${IMAGE_TAG}' 'http://3.89.3.215:8080/job/argo-ci-cdproject-CD/buildWithParameters?token=argo-ci-cdproject'"
+          sh "curl -v -k -user shashanklm:11166b25e5ada9f7ffda8f381886a91cb9 -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' -data 'IMAGE_TAG=${IMAGE_TAG}' 'http://localhost:8080/job/argocd-ci-project//buildWithParameters?token=argo-ci-cdproject'"
         }
       }
     }
-*/
 
 
 
