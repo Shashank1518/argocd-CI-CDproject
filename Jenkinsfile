@@ -38,6 +38,16 @@ pipeline{
           }
         }
       }
+
+     stage('Image name'){
+        steps{
+          script{
+            sh """
+            cat IMAGE_NAME
+            """
+          }
+        }
+      }
     
       stage('delete Docker Image'){
         steps{
