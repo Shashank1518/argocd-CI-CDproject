@@ -46,7 +46,7 @@ pipeline{
           }
         }
       }
-    
+    /*
       stage('delete Docker Image'){
         steps{
           script{
@@ -55,7 +55,7 @@ pipeline{
           }
         }
       }
-  
+  */
     stage('Trigger CD pipeline'){
       steps{
         script{
