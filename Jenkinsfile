@@ -41,6 +41,7 @@ pipeline{
 
      stage('Image name'){
         steps{
+          script{
             echo "Image name: ${IMAGE_TAG}"
           }
         }
