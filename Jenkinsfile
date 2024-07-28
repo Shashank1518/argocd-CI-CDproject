@@ -57,7 +57,7 @@ pipeline{
           }
         }
       }
-    
+  /*
     stage('Trigger CD pipeline'){
       steps{
         script{
@@ -65,7 +65,7 @@ pipeline{
         }
       }
     }
-
+*/
 
 
 
