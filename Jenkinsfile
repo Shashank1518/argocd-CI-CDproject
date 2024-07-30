@@ -20,7 +20,7 @@ pipeline{
         }   
       }
     
-      stage('SonarQube Code Quality'){
+      stage('Build Docker image'){
         steps{
           script{
             docker_image = docker.build "${IMAGE_NAME}"
@@ -28,7 +28,7 @@ pipeline{
         }
       }
     
-      stage('Build Docker image'){
+      stage('SonarQube Code quality'){
         steps{
           sh '''
             mvn clean verify sonar:sonar \
