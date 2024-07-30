@@ -31,11 +31,7 @@ pipeline{
       stage('SonarQube Code quality'){
         steps{
           bat '''
-            mvn clean verify sonar:sonar \
-              -Dsonar.projectKey=argocd \
-              -Dsonar.projectName='argocd' \
-              -Dsonar.host.url=http://localhost:9000 \
-              -Dsonar.token=sqp_e5750e6fc984c10ef7100d81b908b6c904a68849
+            sonar-scanner.bat -D"sonar.projectKey=argocd" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_e5750e6fc984c10ef7100d81b908b6c904a68849"
             '''
         }
       }
