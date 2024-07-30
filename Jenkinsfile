@@ -20,11 +20,23 @@ pipeline{
         }   
       }
     
-      stage('Build Docker image'){
+      stage('SonarQube Code Quality'){
         steps{
           script{
             docker_image = docker.build "${IMAGE_NAME}"
           }
+        }
+      }
+    
+      stage('Build Docker image'){
+        steps{
+          sh '''
+            mvn clean verify sonar:sonar \
+              -Dsonar.projectKey=argocd \
+              -Dsonar.projectName='argocd' \
+              -Dsonar.host.url=http://localhost:9000 \
+              -Dsonar.token=sqp_e5750e6fc984c10ef7100d81b908b6c904a68849
+            '''
         }
       }
     
@@ -55,7 +67,7 @@ pipeline{
           }
         }
       }
-*/
+
     stage('Trigger CD pipeline'){
       steps{
         script{
@@ -63,7 +75,7 @@ pipeline{
         }
       }
     }
-
+*/
 
 
 
