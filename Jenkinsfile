@@ -30,7 +30,7 @@ pipeline{
     
       stage('SonarQube Code quality'){
         steps{
-          sh '''
+          bat '''
             mvn clean verify sonar:sonar \
               -Dsonar.projectKey=argocd \
               -Dsonar.projectName='argocd' \
